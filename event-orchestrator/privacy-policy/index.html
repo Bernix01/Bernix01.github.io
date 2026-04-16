@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Privacy Policy — Event Orchestrator</title>
+  <meta name="description" content="Privacy Policy for Event Orchestrator — Native event planning app for iPhone, iPad, and Mac.">
+  <meta name="author" content="Guillermo Bernal">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://guillermobernal.xyz/event-orchestrator/privacy-policy/">
+
+  <link rel="shortcut icon" href="../../favicon.ico">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            accent: {
+              50:  '#f0fdfa',
+              100: '#ccfbf1',
+              200: '#99f6e4',
+              300: '#5eead4',
+              400: '#2dd4bf',
+              500: '#14b8a6',
+              600: '#0d9488',
+              700: '#0f766e',
+              800: '#115e59',
+              900: '#134e4a',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    .prose h2 { font-size: 1.125rem; font-weight: 600; color: #111827; margin-top: 2rem; margin-bottom: 0.5rem; }
+    .prose p  { color: #6b7280; line-height: 1.75; margin-bottom: 1rem; }
+    .prose ul { color: #6b7280; line-height: 1.75; margin-bottom: 1rem; padding-left: 1.25rem; list-style-type: disc; }
+    .prose ul li { margin-bottom: 0.25rem; }
+    .prose a  { color: #0d9488; text-decoration: underline; }
+    .prose a:hover { color: #0f766e; }
+  </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800 font-sans antialiased">
+
+  <!-- NAVIGATION -->
+  <nav class="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
+    <div class="max-w-5xl mx-auto px-6 flex items-center justify-between h-16">
+      <a href="../../" class="text-lg font-bold text-accent-600 tracking-tight">GB</a>
+      <a href="../" class="text-sm font-medium text-gray-600 hover:text-accent-600 transition-colors">
+        Event Orchestrator
+      </a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="pt-32 pb-20 px-6">
+      <div class="max-w-2xl mx-auto">
+
+        <h1 class="text-3xl font-bold text-gray-900 mb-2 tracking-tight">Privacy Policy</h1>
+        <p class="text-sm text-gray-400 mb-10">Event Orchestrator &nbsp;·&nbsp; Last updated: April 16, 2026</p>
+
+        <div class="prose">
+
+          <p>
+            Event Orchestrator is a native app for iPhone, iPad, and Mac built by Guillermo Bernal. This policy explains what data the app handles, where it is stored, and how it is used. The short version: your data stays on your device and in your private iCloud account.
+          </p>
+
+          <h2>Data you enter into the app</h2>
+          <p>
+            Everything you create in Event Orchestrator — events, tasks, guests, budgets, vendor details, floor plans, schedules, and notes — is stored locally on your device using Apple's frameworks. No data is transmitted to any server operated by us.
+          </p>
+
+          <h2>iCloud sync via CloudKit</h2>
+          <p>
+            If you have iCloud enabled, your data syncs across your devices through Apple's CloudKit. This sync happens directly between your devices and your private iCloud account. We have no access to data stored in CloudKit — Apple's <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Privacy Policy</a> governs that storage.
+          </p>
+
+          <h2>Contacts access</h2>
+          <p>
+            The Guests feature can import contacts from your address book to populate guest names and details. The app reads contact information only when you explicitly trigger an import. Contact data is stored locally within the app and is never transmitted to us or any third party.
+          </p>
+
+          <h2>On-device AI</h2>
+          <p>
+            Event Orchestrator uses Apple's on-device Foundation Models for AI-assisted features such as floor plan layout suggestions and vendor quote parsing. All AI processing happens entirely on your device. Your event data is never sent to any external AI service or server.
+          </p>
+
+          <h2>PDF export</h2>
+          <p>
+            When you export guest lists, budgets, or other documents as PDF, the files are generated locally on your device. You control where those files go — we never receive exported content.
+          </p>
+
+          <h2>Analytics and tracking</h2>
+          <p>
+            We do not collect analytics, crash reports, usage statistics, or any telemetry data from within the app. We do not use any third-party tracking SDKs.
+          </p>
+
+          <h2>Children's privacy</h2>
+          <p>
+            Event Orchestrator is not directed at children under 13. We do not knowingly collect any personal information from children.
+          </p>
+
+          <h2>Changes to this policy</h2>
+          <p>
+            If we update this policy, the revised version will be posted at this URL with an updated date. Continued use of the app after changes constitutes acceptance of the new policy.
+          </p>
+
+          <h2>Contact</h2>
+          <p>
+            Questions about this policy? Reach us at <a href="mailto:hola@guillermobernal.xyz?subject=Privacy%20Event%20Orchestrator">hola@guillermobernal.xyz</a>. We aim to respond within 1–2 business days.
+          </p>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="py-8 px-6 border-t border-gray-100 bg-white text-center">
+    <p class="text-sm text-gray-400">
+      &copy; <span id="year"></span> Guillermo Bernal &nbsp;·&nbsp;
+      <a href="../../" class="hover:text-accent-600 transition-colors">guillermobernal.xyz</a>
+    </p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
