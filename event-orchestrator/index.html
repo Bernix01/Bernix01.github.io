@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Event Orchestrator</title>
+  <meta name="description" content="Event Orchestrator — Native event planning app for iPhone, iPad, and Mac. Manage events, guests, budgets, vendors, floor plans, and more.">
+  <meta name="author" content="Guillermo Bernal">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="Event Orchestrator">
+  <meta property="og:description" content="Native event planning app for iPhone, iPad, and Mac built with on-device AI.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://guillermobernal.xyz/event-orchestrator/">
+  <link rel="canonical" href="https://guillermobernal.xyz/event-orchestrator/">
+
+  <link rel="shortcut icon" href="../favicon.ico">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            accent: {
+              50:  '#f0fdfa',
+              100: '#ccfbf1',
+              200: '#99f6e4',
+              300: '#5eead4',
+              400: '#2dd4bf',
+              500: '#14b8a6',
+              600: '#0d9488',
+              700: '#0f766e',
+              800: '#115e59',
+              900: '#134e4a',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .animate-on-scroll.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .stagger-1 { transition-delay: 0.1s; }
+    .stagger-2 { transition-delay: 0.2s; }
+    .stagger-3 { transition-delay: 0.3s; }
+    .stagger-4 { transition-delay: 0.4s; }
+    .stagger-5 { transition-delay: 0.5s; }
+    .stagger-6 { transition-delay: 0.6s; }
+
+    .cta-lift {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .cta-lift:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .feature-card {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .feature-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    }
+  </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800 font-sans antialiased">
+
+  <!-- NAVIGATION -->
+  <nav class="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
+    <div class="max-w-5xl mx-auto px-6 flex items-center justify-between h-16">
+      <a href="../" class="text-lg font-bold text-accent-600 tracking-tight">GB</a>
+      <a href="mailto:hola@guillermobernal.xyz?subject=Soporte%20Event%20Orchestrator" class="text-sm font-medium text-gray-600 hover:text-accent-600 transition-colors">
+        Soporte / Support
+      </a>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="pt-32 pb-20 px-6 bg-white text-center">
+      <div class="max-w-3xl mx-auto">
+        <!-- App Icon placeholder -->
+        <div class="animate-on-scroll mx-auto mb-8 w-24 h-24 rounded-[22%] bg-gradient-to-br from-accent-400 to-accent-700 flex items-center justify-center shadow-lg">
+          <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+          </svg>
+        </div>
+
+        <h1 class="animate-on-scroll stagger-1 text-4xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tight">
+          Event Orchestrator
+        </h1>
+        <p class="animate-on-scroll stagger-2 text-lg text-gray-500 mb-8 max-w-xl mx-auto leading-relaxed">
+          Plan and manage events effortlessly — guests, budgets, vendors, floor plans, and more. Native on iPhone, iPad, and Mac, powered by on-device AI.
+        </p>
+
+        <div class="animate-on-scroll stagger-3 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <!-- App Store badge (placeholder until live) -->
+          <span class="inline-flex items-center gap-2 px-8 py-3 bg-gray-900 text-white font-medium rounded-full text-sm opacity-60 cursor-default select-none">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            Coming to the App Store
+          </span>
+        </div>
+
+        <p class="animate-on-scroll stagger-4 mt-4 text-xs text-gray-400">
+          Requires iOS / iPadOS 26+ &nbsp;·&nbsp; macOS 26+
+        </p>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="py-20 px-6 bg-gray-50">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="animate-on-scroll text-2xl md:text-3xl font-bold text-gray-900 mb-4 text-center">Everything you need to plan an event</h2>
+        <p class="animate-on-scroll text-gray-500 text-center mb-12 max-w-2xl mx-auto">From the first idea to the day-of schedule, Event Orchestrator keeps every detail in one place.</p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+          <!-- Events -->
+          <div class="animate-on-scroll stagger-1 feature-card bg-white rounded-2xl p-6 border border-gray-100">
+            <div class="w-10 h-10 rounded-xl bg-accent-50 flex items-center justify-center mb-4">
+              <svg class="w-5 h-5 text-accent-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            </div>
+            <h3 class="font-semibold text-gray-900 mb-1">Events</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">Create and manage events with cover photos, date ranges, venue details, and status tracking.</p>
+          </div>
+
+          <!-- Tasks -->
+          <div class="animate-on-scroll stagger-2 feature-card bg-white rounded-2xl p-6 border border-gray-100">
+            <div class="w-10 h-10 rounded-xl bg-accent-50 flex items-center justify-center mb-4">
+              <svg class="w-5 h-5 text-accent-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+            </div>
+            <h3 class="font-semibold text-gray-900 mb-1">Tasks</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">Checklists with templates, progress tracking, and status-aware swipe actions to stay on top of every to-do.</p>
+          </div>
+
+          <!-- Guests -->
+          <div class="animate-on-scroll stagger-3 feature-card bg-white rounded-2xl p-6 border border-gray-100">
+            <div class="w-10 h-10 rounded-xl bg-accent-50 flex items-center justify-center mb-4">
+              <svg class="w-5 h-5 text-accent-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            </div>
+            <h3 class="font-semibold text-gray-900 mb-1">Guests</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">Contact import with deduplication, dietary restrictions, and RSVP tracking for every attendee.</p>
+          </div>
+
+          <!-- Budget -->
+          <div class="animate-on-scroll stagger-1 feature-card bg-white rounded-2xl p-6 border border-gray-100">
+            <div class="w-10 h-10 rounded-xl bg-accent-50 flex items-center justify-center mb-4">
+              <svg class="w-5 h-5 text-accent-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <h3 class="font-semibold text-gray-900 mb-1">Budget</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">Line items with over-budget warnings, a donut chart summary, and vendor offering import.</p>
+          </div>
+
+          <!-- Vendors -->
+          <div class="animate-on-scroll stagger-2 feature-card bg-white rounded-2xl p-6 border border-gray-100">
+            <div class="w-10 h-10 rounded-xl bg-accent-50 flex items-center justify-center mb-4">
+              <svg class="w-5 h-5 text-accent-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+            </div>
+            <h3 class="font-semibold text-gray-900 mb-1">Vendors</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">Global vendor directory with per-event linking, AI quote parsing, and service offerings management.</p>
+          </div>
+
+          <!-- Floor Plan -->
+          <div class="animate-on-scroll stagger-3 feature-card bg-white rounded-2xl p-6 border border-gray-100">
+            <div class="w-10 h-10 rounded-xl bg-accent-50 flex items-center justify-center mb-4">
+              <svg class="w-5 h-5 text-accent-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1H5a1 1 0 01-1-1V5zm10 0a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1V5zM4 15a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1H5a1 1 0 01-1-1v-4zm10 0a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1v-4z"/></svg>
+            </div>
+            <h3 class="font-semibold text-gray-900 mb-1">Floor Plan</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">Canvas editor with AI-generated layout suggestions and an edge clearance system for precise placement.</p>
+          </div>
+
+          <!-- Schedule -->
+          <div class="animate-on-scroll stagger-1 feature-card bg-white rounded-2xl p-6 border border-gray-100">
+            <div class="w-10 h-10 rounded-xl bg-accent-50 flex items-center justify-center mb-4">
+              <svg class="w-5 h-5 text-accent-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <h3 class="font-semibold text-gray-900 mb-1">Schedule</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">Day-of timeline blocks so every moment of your event runs exactly as planned.</p>
+          </div>
+
+          <!-- Notes -->
+          <div class="animate-on-scroll stagger-2 feature-card bg-white rounded-2xl p-6 border border-gray-100">
+            <div class="w-10 h-10 rounded-xl bg-accent-50 flex items-center justify-center mb-4">
+              <svg class="w-5 h-5 text-accent-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+            </div>
+            <h3 class="font-semibold text-gray-900 mb-1">Notes</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">Rich text notes with attachments, synced across devices via CloudKit.</p>
+          </div>
+
+          <!-- Widgets & PDF -->
+          <div class="animate-on-scroll stagger-3 feature-card bg-white rounded-2xl p-6 border border-gray-100">
+            <div class="w-10 h-10 rounded-xl bg-accent-50 flex items-center justify-center mb-4">
+              <svg class="w-5 h-5 text-accent-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
+            </div>
+            <h3 class="font-semibold text-gray-900 mb-1">Widgets &amp; PDF Export</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">Home and lock screen widgets for countdowns and tasks. Export guest lists, budgets, and more as PDF.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREENSHOTS -->
+    <section class="py-20 px-6 bg-white overflow-hidden">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="animate-on-scroll text-2xl md:text-3xl font-bold text-gray-900 mb-4 text-center">See it in action</h2>
+        <p class="animate-on-scroll text-gray-500 text-center mb-12 max-w-xl mx-auto">A clean, native interface designed for iPhone, iPad, and Mac.</p>
+        <div class="flex flex-col sm:flex-row items-end justify-center gap-6 md:gap-10">
+          <div class="animate-on-scroll stagger-1 w-48 md:w-56 shrink-0 drop-shadow-xl">
+            <img src="s1.png" alt="Features overview" class="w-full rounded-[2rem] border border-gray-200">
+          </div>
+          <div class="animate-on-scroll stagger-2 w-48 md:w-56 shrink-0 drop-shadow-xl -mb-4 sm:mb-6">
+            <img src="s2.png" alt="Floor Plan designer" class="w-full rounded-[2rem] border border-gray-200">
+          </div>
+          <div class="animate-on-scroll stagger-3 w-48 md:w-56 shrink-0 drop-shadow-xl">
+            <img src="s3.png" alt="Budget tracking" class="w-full rounded-[2rem] border border-gray-200">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ON-DEVICE AI HIGHLIGHT -->
+    <section class="py-20 px-6 bg-white">
+      <div class="max-w-3xl mx-auto text-center">
+        <div class="animate-on-scroll mx-auto mb-6 w-12 h-12 rounded-2xl bg-accent-50 flex items-center justify-center">
+          <svg class="w-6 h-6 text-accent-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+        </div>
+        <h2 class="animate-on-scroll stagger-1 text-2xl md:text-3xl font-bold text-gray-900 mb-4">Powered by on-device AI</h2>
+        <p class="animate-on-scroll stagger-2 text-gray-500 leading-relaxed max-w-xl mx-auto">
+          Event Orchestrator uses Apple's on-device Foundation Models — your data never leaves your device. AI assists with floor plan layouts, vendor quote parsing, and more, all privately and instantly.
+        </p>
+      </div>
+    </section>
+
+    <!-- SUPPORT -->
+    <section id="support" class="py-20 px-6 bg-gray-50">
+      <div class="max-w-2xl mx-auto text-center">
+        <h2 class="animate-on-scroll text-2xl md:text-3xl font-bold text-gray-900 mb-4">Support</h2>
+        <p class="animate-on-scroll stagger-1 text-gray-500 mb-8 leading-relaxed">
+          Have a question, found a bug, or want to share feedback? Send us a message and we'll get back to you as soon as possible.
+        </p>
+        <a href="mailto:hola@guillermobernal.xyz?subject=Soporte%20Event%20Orchestrator"
+           class="animate-on-scroll stagger-2 cta-lift inline-flex items-center gap-2 px-8 py-3 bg-accent-600 text-white font-medium rounded-full hover:bg-accent-700 transition-colors">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          hola@guillermobernal.xyz
+        </a>
+        <p class="animate-on-scroll stagger-3 mt-4 text-xs text-gray-400">We aim to respond within 1–2 business days.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="py-8 px-6 border-t border-gray-100 bg-white text-center">
+    <p class="text-sm text-gray-400">
+      &copy; <span id="year"></span> Guillermo Bernal &nbsp;·&nbsp;
+      <a href="../" class="hover:text-accent-600 transition-colors">guillermobernal.xyz</a>
+    </p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
